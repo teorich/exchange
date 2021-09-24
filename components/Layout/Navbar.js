@@ -67,9 +67,9 @@ const handleLanguageToggle = (evt) => {
               <div className="responsive-others-option">
                 <div className="d-flex align-items-center">
                   <div className="option-item">
-                    <select className="form-select">
-                      <option value="0">English</option>
-                      <option value="1">French</option>
+                    <select className="form-select" onChange={handleLanguageToggle}>
+                      <option value="en-US">English</option>
+                      <option value="fr">French</option>
                     </select>
                   </div>
                 </div>
@@ -87,7 +87,7 @@ const handleLanguageToggle = (evt) => {
           <div className="container">
             <Link href="/">
               <a className="navbar-brand">
-                <img src="/images/logoF.png" alt="logo" /> <br />
+                <img src="/images/logoF.png" alt="ferrariexchange" /> <br />
               </a>
             </Link>
             <div className="collapse navbar-collapse mean-menu">

@@ -167,7 +167,7 @@ const t = locale === 'en-US' ? enUS: fr
           </div>
         </div>
         <div className="shape1">
-          <img src="/images/shape/shape1.png" alt="image" />
+          <img src="/images/shape/expbw.png" alt="image" width="146" height="124"/>
         </div>
         <div className="shape2">
           <img src="/images/shape/shape2.png" alt="image" />
@@ -179,7 +179,7 @@ const t = locale === 'en-US' ? enUS: fr
           <img src="/images/shape/shape5.png" alt="image" />
         </div>
         <div className="shape9">
-          <img src="/images/shape/shape9.png" alt="image" />
+          <img src="/images/shape/bw3.png" alt="image" />
         </div>
       </div>
     </>
