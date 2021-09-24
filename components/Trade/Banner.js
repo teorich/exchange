@@ -1,10 +1,24 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+
+import {enUS, fr} from '../../translations'
 
 import { Accordion } from 'react-bootstrap';
 
 const Banner = () => {
+
+  const [serviceSelected, setServiceSelected] = useState('Inquiry')
+
+  const router = useRouter();
+
+const { locale} = router;
+const t = locale === 'en-US' ? enUS: fr
+
+  const handleOnServiceSelect = (evt) => {
+    setServiceSelected(evt.target.value)
+  }
+
   const [name, setName] = useState('Bitcoin');
   const [nameTwo, setNameTwo] = useState('USD');
 
@@ -49,18 +63,14 @@ const Banner = () => {
             <div className="col-lg-6 col-md-12">
               <div className="trade-cryptocurrency-content">
                 <h1>
-                  <span>Trade Bitcoin</span>
-                  <span>for Litecoin</span>
+                  <span>Exchange Bitcoin</span>
+                  <span>for fiat money and much more</span>
                 </h1>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis egnostrud exercitation ullamco.
                 </p>
-                <a href="#" className="link-btn">
-                  <i className="fas fa-caret-right"></i> Read More
-                  Cryptocurrency
-                </a>
               </div>
             </div>
             <div className="col-lg-6 col-md-12 main-banner-box">
@@ -69,19 +79,21 @@ const Banner = () => {
                 <Accordion.Header>Select services</Accordion.Header>
                 <Accordion.Body>
                   <form>
-                    <div className="mb-3">
+                  <div className="mb-3">
                       <select
+                      onChange={handleOnServiceSelect}
+                      value={serviceSelected}
                         className="form-select"
                         aria-label="Default select example"
                       >
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value='Inquiry'>Open this select menu</option>
+                        <option value='Exchange bitcoin for fiat' >Exchange bitcoin for fiat</option>
+                        <option value='Send money'>Send money</option>
+                        <option value='Buy bitcoin'>Buy bitcoin</option>
                       </select>
                     </div>
                     <a
-                      href="https://api.whatsapp.com/send?phone=+237683777712*&text=%20*YOURMESSAGE*"
+                    href={`https://api.whatsapp.com/send?phone=+237683777712*&text=%20*${serviceSelected}*`}
                       target="_blank"
                       className="coinbaseBtn"
                     >

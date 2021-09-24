@@ -9,7 +9,6 @@ const Trade = () => {
   return (
     <>
       <Banner />
-      <Features />
       <PaymentArea />
       {/* <RegisterArea ctaImage="/images/man.png" /> */}
     </>
