@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-const OwlCarousel = dynamic(import('react-owl-carousel3'));
+// const OwlCarousel = dynamic(import('react-owl-carousel3'));
 
 const options = {
   nav: true,
@@ -49,133 +49,15 @@ const Platform = () => {
 
   return (
     <>
-      <div className='cryptocurrency-platform-area'>
-        <div className='container-fluid'>
-          <div className='section-title'>
+      <div className="cryptocurrency-platform-area">
+        <div className="container-fluid">
+          <div className="section-title">
             <h2>The Most Trusted Cryptocurrency Platform</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco.
             </p>
-          </div>
-          <div className='cryptocurrency-platform-slides'>
-            {display ? (
-              <OwlCarousel {...options}>
-                <div className='single-cryptocurrency-platform-box'>
-                  <img
-                    src='/images/cryptocurrency-platform/cryptocurrency-platform-1.jpg'
-                    alt='image'
-                  />
-                  <div className='content'>
-                    <div className='icon'>
-                      <img src='/images/icon/icon4.png' alt='image' />
-                    </div>
-                    <h3>
-                      <a href='cryptocurrency-details.html'>
-                        Protected by Insurance
-                      </a>
-                    </h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco.
-                    </p>
-                    <Link href='/cryptocurrency-details' className='link-btn'>
-                      <a className='link-btn'>
-                        {' '}
-                        View More <i className='bx bx-chevron-right'></i>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className='single-cryptocurrency-platform-box'>
-                  <img
-                    src='/images/cryptocurrency-platform/cryptocurrency-platform-3.jpg'
-                    alt='image'
-                  />
-                  <div className='content'>
-                    <div className='icon'>
-                      <img src='/images/icon/icon5.png' alt='image' />
-                    </div>
-                    <h3>
-                      <a href='cryptocurrency-details.html'>
-                        Build Your Reputation
-                      </a>
-                    </h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco.
-                    </p>
-                    <Link href='/cryptocurrency-details' className='link-btn'>
-                      <a className='link-btn'>
-                        {' '}
-                        View More <i className='bx bx-chevron-right'></i>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className='single-cryptocurrency-platform-box'>
-                  <img
-                    src='/images/cryptocurrency-platform/cryptocurrency-platform-4.jpg'
-                    alt='image'
-                  />
-                  <div className='content'>
-                    <div className='icon'>
-                      <img src='/images/icon/icon6.png' alt='image' />
-                    </div>
-                    <h3>
-                      <a href='cryptocurrency-details.html'>
-                        Earn Extra Income
-                      </a>
-                    </h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco.
-                    </p>
-                    <Link href='/cryptocurrency-details' className='link-btn'>
-                      <a className='link-btn'>
-                        {' '}
-                        View More <i className='bx bx-chevron-right'></i>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className='single-cryptocurrency-platform-box'>
-                  <img
-                    src='/images/cryptocurrency-platform/cryptocurrency-platform-2.jpg'
-                    alt='image'
-                  />
-                  <div className='content'>
-                    <div className='icon'>
-                      <img src='/images/icon/icon7.png' alt='image' />
-                    </div>
-                    <h3>
-                      <a href='cryptocurrency-details.html'>Secure Storage</a>
-                    </h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco.
-                    </p>
-                    <Link href='/cryptocurrency-details' className='link-btn'>
-                      <a className='link-btn'>
-                        {' '}
-                        View More <i className='bx bx-chevron-right'></i>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-              </OwlCarousel>
-            ) : (
-              ''
-            )}
           </div>
         </div>
       </div>

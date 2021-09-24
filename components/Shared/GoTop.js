@@ -4,9 +4,9 @@ const GoTop = () => {
   const [isVisible, setisVisible] = useState(false);
 
   useEffect(() => {
-    document.addEventListener('scroll', function (e) {
-      toggleVisibility();
-    });
+    document.addEventListener('scroll', toggleVisibility);
+
+    return () => document.removeEventListener('scroll', toggleVisibility)
   }, []);
 
   const toggleVisibility = () => {
@@ -27,8 +27,8 @@ const GoTop = () => {
   return (
     <>
       {isVisible && (
-        <div className='go-top active' onClick={() => scrollToTop()}>
-          <i className='bx bx-chevron-up'></i>
+        <div className="go-top bg-warning active" onClick={() => scrollToTop()}>
+          <i className="bx bx-chevron-up"></i>
         </div>
       )}
     </>
