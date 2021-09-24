@@ -12,35 +12,34 @@ import NavbarTwo from './NavbarTwo';
 import Footer from './Footer';
 
 const Layout = ({ children }) => {
-  
   const router = useRouter();
   const { pathname } = router;
 
   return (
     <>
       <Head>
-        <title>Novis - React/Next Cryptocurrency Template</title>
+        <title>Ferrari Exchange - Send and Receive Money in seconds</title>
         <meta
-          name='viewport'
-          content='width=device-width, initial-scale=1, shrink-to-fit=no'
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <meta
-          name='description'
-          content='Ribnic - Muli-Niche eCommerce React Template'
+          name="description"
+          content="Ferrari Exchange - Send and Receive Money in seconds"
         />
         <meta
-          name='og:title'
-          property='og:title'
-          content='Ribnic - Muli-Niche eCommerce React Template'
+          name="og:title"
+          property="og:title"
+          content="Ferrari Exchange - Send and Receive Money in seconds"
         ></meta>
         <meta
-          name='twitter:card'
-          content='Ribnic - Muli-Niche eCommerce React Template'
+          name="twitter:card"
+          content="Ferrari Exchange - Send and Receive Money in seconds"
         ></meta>
-        <link rel='canonical' href='https://novis-react.envytheme.com'></link>
+        <link rel="canonical" href="https://ferrariexchange.org"></link>
       </Head>
 
-      {pathname === '/' ? <TopHeader /> :''}
+      {pathname === '/' ? <TopHeader /> : ''}
       {pathname === '/index-2' ? <NavbarTwo /> : <Navbar />}
 
       {children}

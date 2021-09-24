@@ -1537,7 +1537,7 @@ About Area CSS
 .about-content {
   border-radius: 0 0 5px 5px;
   background-color: var(--blackColor);
-  background-image: url(../images/about.jpg);
+  background-image: url(../images/tokens.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

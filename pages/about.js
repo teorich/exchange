@@ -1,6 +1,3 @@
-import AdvisorArea from '../components/Common/AdvisorArea';
-import AccountCreate from '../components/Common/AccountCreate';
-import RegisterArea from '../components/Common/RegisterArea';
 
 const About = () => {
   return (
@@ -109,10 +106,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      <AdvisorArea bgColor="bg-f9f9f9"/>
-      <AccountCreate title='Our Values'/>
-      <RegisterArea ctaImage='/images/man.png' />
     </>
   );
 };

@@ -6,16 +6,14 @@ import FeedBack from '../components/Common/FeedBack';
 import RegisterArea from '../components/Common/RegisterArea';
 
 const Trade = () => {
-    return (
-        <>
-        <Banner/>
-        <Features/>
-        <BestSeller/>
-        <PaymentArea/>
-        <FeedBack/>
-        <RegisterArea ctaImage='/images/man.png'/>
-        </>
-    )
-}
+  return (
+    <>
+      <Banner />
+      <Features />
+      <PaymentArea />
+      {/* <RegisterArea ctaImage="/images/man.png" /> */}
+    </>
+  );
+};
 
-export default Trade
+export default Trade;
