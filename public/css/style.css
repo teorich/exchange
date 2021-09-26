@@ -130,6 +130,7 @@ img {
   z-index: -2;
   top: 0;
   overflow: hidden; 
+  display: block;
 }
 
 

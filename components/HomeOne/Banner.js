@@ -24,8 +24,9 @@ const Banner = () => {
   return (
     <>
       <div className="main-banner-area">
-        <video autoPlay muted loop className="video">
-          <source src="/images/bwvid.webm" type="video/mp4" />
+        <video autoPlay muted playsInline loop className="video">
+          <source src="/images/bwvid3.mp4" type="video/mp4" />
+          <source src="/images/bwvid.webm" type="video/webm" />
         </video>
         <div className="container">
           <div className="main-banner-box">
