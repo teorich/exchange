@@ -66,6 +66,15 @@ Default CSS
   --paragraphColor: #666666;
   --fontSize: 15px;
   --transition: .5s;
+  --video-width: 100vw;
+  --video-height: 100vh;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  :root { --video-height: 56.25vw; }
+}
+@media (max-aspect-ratio: 16/9) {
+  :root { --video-width: 177.78vh; }
 }
 
 body {
@@ -112,6 +121,17 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.video {   
+  object-fit: cover;   
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  overflow: hidden; 
+}
+
 
 p {
   color: var(--paragraphColor);
@@ -838,7 +858,7 @@ Main Banner Area CSS
   max-width: 450px;
   position: absolute;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8); */
 }
 
 .main-banner-box .currency-selection {
@@ -2507,7 +2527,7 @@ Value Trade Area CSS
 =================================================*/
 .value-trade-area {
   background-color: #f9f9f9;
-  padding-top: 12px;
+  /* padding-top: 12px; */
   padding-bottom: 12px;
 }
 

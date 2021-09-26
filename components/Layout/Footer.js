@@ -55,7 +55,7 @@ const Footer = () => {
                     Phone: <a href="tel:+237683777712">+237 683 77 77 12</a>
                   </li>
                   <li>
-                    Phone-2: <a href="tel:+4693873638">+469 387 3638</a>
+                    Phone-2: <a href="tel:+4693873638">+1 469 387 3638</a>
                   </li>
                 </ul>
               </div>

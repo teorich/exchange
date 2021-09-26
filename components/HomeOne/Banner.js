@@ -1,51 +1,86 @@
-import { useState} from 'react';
-import { Accordion } from 'react-bootstrap';
-import { useRouter } from 'next/router';
+import { useState } from "react";
+import { Accordion } from "react-bootstrap";
+import { useRouter } from "next/router";
 
-
-import {enUS, fr} from '../../translations'
-
+import { enUS, fr } from "../../translations";
 
 const Banner = () => {
-
-  const [serviceSelected, setServiceSelected] = useState('Inquiry')
+  const [source, setSource] = useState("Inquiry");
+  const [destination, setDestination] = useState("");
 
   const router = useRouter();
 
-const { locale} = router;
-const t = locale === 'en-US' ? enUS: fr
+  const { locale } = router;
+  const t = locale === "en-US" ? enUS : fr;
 
-  const handleOnServiceSelect = (evt) => {
-    setServiceSelected(evt.target.value)
-  }
+  const handleOnSourceSelect = (evt) => {
+    setSource(evt.target.value);
+  };
 
-
+  const handleOnDestinationSelect = (evt) => {
+    setDestination(evt.target.value);
+  };
 
   return (
     <>
       <div className="main-banner-area">
+        <video autoPlay muted loop className="video">
+          <source src="/images/bwvid.webm" type="video/webm" />
+        </video>
         <div className="container">
           <div className="main-banner-box">
-            <Accordion defaultActiveKey="0">
+            <Accordion defaultActiveKey="0" className="bg-dark">
               <Accordion.Item eventKey="0">
-                <Accordion.Header>Select services</Accordion.Header>
+                <Accordion.Header>Send money</Accordion.Header>
                 <Accordion.Body>
                   <form>
-                    <div className="mb-3">
-                      <select
-                      onChange={handleOnServiceSelect}
-                      value={serviceSelected}
-                        className="form-select"
-                        aria-label="Default select example"
+                    <div className="form-group row mb-4">
+                      <label
+                        htmlFor="inputFrom"
+                        className="col-sm-2 col-form-label text-white"
                       >
-                        <option value='Inquiry'>Open this select menu</option>
-                        <option value='Exchange bitcoin for fiat' >Exchange bitcoin for fiat</option>
-                        <option value='Send money'>Send money</option>
-                        <option value='Buy bitcoin'>Buy bitcoin</option>
-                      </select>
+                        From
+                      </label>
+                      <div className="col-sm-10">
+                        <select
+                          onChange={handleOnSourceSelect}
+                          value={source}
+                          className="form-select"
+                          aria-label="Default select example"
+                        >
+                          <option value="Inquiry">Open this select menu</option>
+                          <option value="USA">USA</option>
+                          <option value="Cameroon">Cameroon</option>
+                          <option value="Nigeria">Nigeria</option>
+                          <option value="United kingdom">United kingdom</option>
+                        </select>
+                      </div>
                     </div>
+                    <div className="form-group row mt-2">
+                      <label
+                        htmlFor="inputTo"
+                        className="col-sm-2 col-form-label text-white"
+                      >
+                        To
+                      </label>
+                      <div className="col-sm-10">
+                        <select
+                          onChange={handleOnDestinationSelect}
+                          value={destination}
+                          className="form-select"
+                          aria-label="Default select example"
+                        >
+                          <option value="Inquiry">Open this select menu</option>
+                          <option value="USA">USA</option>
+                          <option value="Cameroon">Cameroon</option>
+                          <option value="Nigeria">Nigeria</option>
+                          <option value="United kingdom">United kingdom</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <a
-                      href={`https://api.whatsapp.com/send?phone=+237683777712*&text=%20*${serviceSelected}*`}
+                      href={`https://api.whatsapp.com/send?phone=+237683777712*&text=%20*I wish to send money From ${source} to ${destination}*`}
                       target="_blank"
                       className="coinbaseBtn"
                     >
@@ -156,7 +191,7 @@ const t = locale === 'en-US' ? enUS: fr
           <div className="row align-items-center m-0">
             <div className="col-xl-5 col-lg-5 col-md-12 p-0">
               <div className="main-banner-content">
-                <h1>{t.send_receive_money}</h1>
+                <h1 className="text-white">{t.send_receive_money}</h1>
               </div>
             </div>
             <div className="col-xl-4 col-lg-12 col-md-12 p-0">
@@ -166,7 +201,7 @@ const t = locale === 'en-US' ? enUS: fr
             </div>
           </div>
         </div>
-        <div className="shape1">
+        {/* <div className="shape1">
           <img src="/images/shape/expbw.png" alt="image" width="146" height="124"/>
         </div>
         <div className="shape2">
@@ -180,7 +215,7 @@ const t = locale === 'en-US' ? enUS: fr
         </div>
         <div className="shape9">
           <img src="/images/shape/bw3.png" alt="image" />
-        </div>
+        </div> */}
       </div>
     </>
   );
