@@ -1,48 +1,48 @@
+import { useRouter } from "next/router";
+import { enUS, fr } from "../../translations";
 
-const OurFeature = ({title}) => {
+const OurFeature = ({ title }) => {
+
+  const router = useRouter();
+
+  const { locale } = router;
+  const t = locale === "en-US" ? enUS : fr;
+
   return (
     <>
-      <div className='features-area pt-100 pb-70'>
-        <div className='container'>
-          <div className='section-title'>
-            <h2>{title}</h2>
+      <div className="features-area pt-100 pb-70">
+        <div className="container">
+          <div className="section-title">
+            <h2>{t.our_feature}</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco.
+              {t.our_feature_sub}
             </p>
           </div>
-          <div className='row align-items-center justify-content-center'>
-            <div className='col-lg-4 col-md-6 col-sm-6'>
-              <div className='single-features-box'>
-                <img src='/images/features/features-img1.png' alt='image' />
-                <h3>Security First</h3>
+          <div className="row align-items-center justify-content-center">
+            <div className="col-lg-4 col-md-6 col-sm-6">
+              <div className="single-features-box">
+                <img src="/images/features/features-img1.png" alt="image" />
+                <h3>{t.security_first}</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipicing elit, sed do
-                  eiusmod tempor incididunt ut labore et doee magna aliqua. Ut
-                  enim ad minim veniam.
+                  {t.security_first_sub}
                 </p>
               </div>
             </div>
-            <div className='col-lg-4 col-md-6 col-sm-6'>
-              <div className='single-features-box'>
-                <img src='/images/features/features-img2.png' alt='image' />
-                <h3>Fast Withdrawals</h3>
+            <div className="col-lg-4 col-md-6 col-sm-6">
+              <div className="single-features-box">
+                <img src="/images/features/features-img2.png" alt="image" />
+                <h3>{t.fast_withdraw}</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipicing elit, sed do
-                  eiusmod tempor incididunt ut labore et doee magna aliqua. Ut
-                  enim ad minim veniam.
+                  {t.fast_withdraw_sub}
                 </p>
               </div>
             </div>
-            <div className='col-lg-4 col-md-6 col-sm-6'>
-              <div className='single-features-box'>
-                <img src='/images/features/features-img3.png' alt='image' />
-                <h3>24/7 Support</h3>
+            <div className="col-lg-4 col-md-6 col-sm-6">
+              <div className="single-features-box">
+                <img src="/images/features/features-img3.png" alt="image" />
+                <h3>24/7 {t.support_daily}</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipicing elit, sed do
-                  eiusmod tempor incididunt ut labore et doee magna aliqua. Ut
-                  enim ad minim veniam.
+                  {t.support_daily_sub}
                 </p>
               </div>
             </div>

@@ -77,7 +77,7 @@ const Faq = ({ data }) => {
                 id="novis-direct"
                 role="tabpanel"
               >
-                <div className="text-lg-start col-6 offset-2" id="accordionFaq">
+                <div className="text-lg-start col- offset-1" id="accordionFaq">
                   <div className="text-lg-start">
                     <h2>Fraud Awareness</h2>
 
@@ -130,7 +130,7 @@ const Faq = ({ data }) => {
                 id="orders"
                 role="tabpanel"
               >
-                <div className="text-lg-start col-6 offset-2" id="accordionFaq">
+                <div className="text-lg-start " id="accordionFaq">
                   <div className="text-lg-start">
                     <h2>Fraud Types</h2>
 
@@ -148,7 +148,7 @@ const Faq = ({ data }) => {
                     </p>
                   </div>
                 </div>
-                <div className="accordion text-lg-start col-6 offset-2" id="accordionFaq3">
+                <div className="accordion text-lg-start" id="accordionFaq3">
                   {data.slice(0, 10).map((data, index) => (
                     <div
                       key={index}

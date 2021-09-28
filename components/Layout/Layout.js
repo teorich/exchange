@@ -39,8 +39,8 @@ const Layout = ({ children }) => {
         <link rel="canonical" href="https://ferrariexchange.org"></link>
       </Head>
 
-      {pathname === '/' ? <TopHeader /> : ''}
-      {pathname === '/index-2' ? <NavbarTwo /> : <Navbar />}
+      <TopHeader />
+      <Navbar />
 
       {children}
 

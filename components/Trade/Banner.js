@@ -8,6 +8,8 @@ import { Accordion } from "react-bootstrap";
 const Banner = () => {
   const [source, setSource] = useState("Inquiry");
   const [destination, setDestination] = useState("");
+  const [otherSource, setOtherSource] = useState();
+  const [otherDestination, setOrtherDestination] = useState();
 
   const router = useRouter();
 
@@ -22,30 +24,32 @@ const Banner = () => {
     setDestination(evt.target.value);
   };
 
+  const handleOnOtherSourceSelect = (evt) => {
+    setOtherSource(evt.target.value);
+  };
+
+  const handleOnOtherDestinationSelect = (evt) => {
+    setOrtherDestination(evt.target.value);
+  };
+
  
 
   return (
     <>
-      <div className="trade-cryptocurrency-area ptb-100">
+      <div className="trade-cryptocurrency-area">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6 col-md-12">
-              <div className="trade-cryptocurrency-content">
+            <div className="col-lg-6 col-md-12 ptb-100">
+              <div className="trade-cryptocurrency-content ptb-70">
                 <h1>
-                  <span>Exchange Bitcoin</span>
-                  <span>for fiat money and much more</span>
+                  {t.send_receive_money}
                 </h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis egnostrud exercitation ullamco.
-                </p>
               </div>
             </div>
             <div className="col-lg-6 col-md-12 main-banner-box">
               <Accordion defaultActiveKey="0" className="bg-dark">
                 <Accordion.Item eventKey="0">
-                  <Accordion.Header>Send money</Accordion.Header>
+                  <Accordion.Header>{t.send_money}</Accordion.Header>
                   <Accordion.Body>
                     <form>
                       <div className="form-group row mb-2">
@@ -53,7 +57,7 @@ const Banner = () => {
                           htmlFor="inputFrom"
                           className="col-sm-2 col-form-label text-white"
                         >
-                          From
+                          {t.from}
                         </label>
                         <div className="col-sm-10">
                           <select
@@ -63,7 +67,7 @@ const Banner = () => {
                             aria-label="Default select example"
                           >
                             <option value="Inquiry">
-                              Open this select menu
+                              {t.select_option}
                             </option>
                             <option value="USA">USA</option>
                             <option value="Cameroon">Cameroon</option>
@@ -79,7 +83,7 @@ const Banner = () => {
                           htmlFor="inputTo"
                           className="col-sm-2 col-form-label text-white"
                         >
-                          To
+                         {t.to}
                         </label>
                         <div className="col-sm-10">
                           <select
@@ -89,7 +93,7 @@ const Banner = () => {
                             aria-label="Default select example"
                           >
                             <option value="Inquiry">
-                              Open this select menu
+                              {t.select_option}
                             </option>
                             <option value="USA">USA</option>
                             <option value="Cameroon">Cameroon</option>
@@ -104,9 +108,9 @@ const Banner = () => {
                       <a
                         href={`https://api.whatsapp.com/send?phone=+237683777712*&text=%20*I wish to send money From ${source} to ${destination}*`}
                         target="_blank"
-                        className="coinbaseBtn"
+                        className="coinbaseBtn bg-primary"
                       >
-                        <i className="bx bxs-hand-right"></i> Continue
+                        <i className="bx bxs-hand-right"></i> {t.continue}
                       </a>
                     </form>
                   </Accordion.Body>

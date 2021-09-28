@@ -3,10 +3,13 @@ import { Accordion } from "react-bootstrap";
 import { useRouter } from "next/router";
 
 import { enUS, fr } from "../../translations";
+import countries from "../Shared/countries";
 
 const Banner = () => {
-  const [source, setSource] = useState("Inquiry");
-  const [destination, setDestination] = useState("");
+  const [source, setSource] = useState('Inquiry');
+  const [destination, setDestination] = useState('Inquiry');
+  const [otherSource, setOtherSource] = useState();
+  const [otherDestination, setOrtherDestination] = useState();
 
   const router = useRouter();
 
@@ -21,6 +24,14 @@ const Banner = () => {
     setDestination(evt.target.value);
   };
 
+  const handleOnOtherSourceSelect = (evt) => {
+    setOtherSource(evt.target.value);
+  };
+
+  const handleOnOtherDestinationSelect = (evt) => {
+    setOrtherDestination(evt.target.value);
+  };
+
   return (
     <>
       <div className="main-banner-area">
@@ -31,29 +42,49 @@ const Banner = () => {
           <div className="main-banner-box">
             <Accordion defaultActiveKey="0" className="bg-dark">
               <Accordion.Item eventKey="0">
-                <Accordion.Header>Send money</Accordion.Header>
+                <Accordion.Header>{t.send_money}</Accordion.Header>
                 <Accordion.Body>
                   <form>
-                    <div className="form-group row mb-4">
+                    <div className="form-group row mb-2">
                       <label
                         htmlFor="inputFrom"
                         className="col-sm-2 col-form-label text-white"
                       >
-                        From
+                        {t.from}
                       </label>
                       <div className="col-sm-10">
-                        <select
-                          onChange={handleOnSourceSelect}
-                          value={source}
-                          className="form-select"
-                          aria-label="Default select example"
-                        >
-                          <option value="Inquiry">Open this select menu</option>
-                          <option value="USA">USA</option>
-                          <option value="Cameroon">Cameroon</option>
-                          <option value="Nigeria">Nigeria</option>
-                          <option value="United kingdom">United kingdom</option>
-                        </select>
+                        {source !== "Others" && (
+                          <select
+                            onChange={handleOnSourceSelect}
+                            value={source}
+                            className="form-select"
+                            aria-label="Default select example"
+                          >
+                            <option value="Inquiry">{t.select_option}</option>
+                            <option value="USA">USA</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="United kingdom">
+                              United kingdom
+                            </option>
+                            <option value="Others">Others</option>
+                          </select>
+                        )}
+                        {source === "Others" && (
+                          <select
+                            onChange={handleOnOtherSourceSelect}
+                            value={otherSource}
+                            className="form-select"
+                            aria-label="Default select example"
+                          >
+                            <option value="Inquiry">{t.select_option}</option>
+                            {countries.map((country) => (
+                              <option key={country.code} value={country.name}>
+                                {country.name}
+                              </option>
+                            ))}
+                          </select>
+                        )}
                       </div>
                     </div>
                     <div className="form-group row mt-2">
@@ -61,30 +92,56 @@ const Banner = () => {
                         htmlFor="inputTo"
                         className="col-sm-2 col-form-label text-white"
                       >
-                        To
+                        {t.to}
                       </label>
                       <div className="col-sm-10">
-                        <select
-                          onChange={handleOnDestinationSelect}
-                          value={destination}
-                          className="form-select"
-                          aria-label="Default select example"
-                        >
-                          <option value="Inquiry">Open this select menu</option>
-                          <option value="USA">USA</option>
-                          <option value="Cameroon">Cameroon</option>
-                          <option value="Nigeria">Nigeria</option>
-                          <option value="United kingdom">United kingdom</option>
-                        </select>
+                        {destination !== "Others" && (
+                          <select
+                            onChange={handleOnDestinationSelect}
+                            value={otherDestination}
+                            className="form-select"
+                            aria-label="Default select example"
+                          >
+                            <option value="Inquiry">{t.select_option}</option>
+                            <option value="USA">USA</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="United kingdom">
+                              United kingdom
+                            </option>
+                            <option value="Others">Others</option>
+                          </select>
+                        )}
+                        {destination === "Others" && (
+                          <select
+                            onChange={handleOnOtherDestinationSelect}
+                            value={otherDestination}
+                            className="form-select"
+                            aria-label="Default select example"
+                          >
+                            <option value="Inquiry">{t.select_option}</option>
+                            {countries.map((country) => (
+                              <option key={country.code} value={country.name}>
+                                {country.name}
+                              </option>
+                            ))}
+                          </select>
+                        )}
                       </div>
                     </div>
 
                     <a
-                      href={`https://api.whatsapp.com/send?phone=+237683777712*&text=%20*I wish to send money From ${source} to ${destination}*`}
+                      href={`https://api.whatsapp.com/send?phone=+237683777712*&text=%20*I wish to send money From ${
+                        source === "Others" ? otherSource : source
+                      } to ${
+                        destination === "Others"
+                          ? otherDestination
+                          : destination
+                      }*`}
                       target="_blank"
-                      className="coinbaseBtn"
+                      className="coinbaseBtn bg-primary"
                     >
-                      <i className="bx bxs-hand-right"></i> Continue
+                      <i className="bx bxs-hand-right"></i> {t.continue}
                     </a>
                   </form>
                 </Accordion.Body>

@@ -5,6 +5,7 @@ import {enUS, fr} from '../../translations'
 
 const Navbar = () => {
   const [showMenu, setshowMenu] = useState(false);
+  const [currentLocale, setCurrentLocale] = useState('fr')
 
     
 const router = useRouter();
@@ -12,14 +13,19 @@ const router = useRouter();
 const { locale, asPath } = router;
 const t = locale === 'en-US' ? enUS: fr
 
+useEffect(()=> {
+setCurrentLocale(locale)
+}, [])
+
 const handleLanguageToggle = (evt) => {
-  console.log(evt.target.value)
   switch (evt.target.value) {
     case 'en-US':
-      router.push(asPath, asPath, {locale: 'en-US'})
+      setCurrentLocale('en-US')
+      router.push(asPath, asPath, {locale: 'en-US', scroll: false})
       break;
       case 'fr':
-        router.push(asPath, asPath, {locale: 'fr'})
+        setCurrentLocale('fr')
+        router.push(asPath, asPath, {locale: 'fr', scroll: false})
       break;
   
     default:
@@ -67,7 +73,7 @@ const handleLanguageToggle = (evt) => {
               <div className="responsive-others-option">
                 <div className="d-flex align-items-center">
                   <div className="option-item">
-                    <select className="form-select" onChange={handleLanguageToggle}>
+                    <select className="form-select" value={currentLocale} onChange={handleLanguageToggle}>
                       <option value="en-US">English</option>
                       <option value="fr">French</option>
                     </select>
@@ -97,11 +103,11 @@ const handleLanguageToggle = (evt) => {
                     <a className=" nav-link">{t.home}</a>
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link href="/about" activeClassName="active">
                     <a className="nav-link">{t.about_us}</a>
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link href="/faq" activeClassName="active">
                     <a className="nav-link">{t.fraud_awareness}</a>
@@ -117,13 +123,13 @@ const handleLanguageToggle = (evt) => {
                 <div className="d-flex align-items-center">
                   <div className="option-item">
                     <Link href="/trade" activeClassName="active">
-                      <a className="default-btn">
+                      <a className="default-btn bg-primary">
                         <i className="bx bx-transfer"></i>{t.take_action}
                       </a>
                     </Link>
                   </div>
                   <div className="option-item">
-                    <select className="form-select" onChange={handleLanguageToggle}>
+                    <select className="form-select" value={currentLocale} onChange={handleLanguageToggle}>
                       <option value="en-US">English</option>
                       <option value="fr">French</option>
                     </select>

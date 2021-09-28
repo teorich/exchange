@@ -11,7 +11,7 @@ const Contact = () => {
       <div className="contact-area ptb-100">
         <div className="container">
           <div className="row">
-            <div className="col-xl-4 col-lg-12 col-md-12">
+            <div className="col-xl-5 col-lg-12 col-md-12">
               <div className="contact-info">
                 <h3>Contact Address:</h3>
                 <p>
@@ -69,7 +69,7 @@ const Contact = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-xl-8 col-lg-12 col-md-12">
+            <div className="col-xl-7 col-lg-12 col-md-12">
               <div className="maps">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15026.476498445918!2d9.18503392010968!3d4.020545500999431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10614aaa4805faaf%3A0xae7f25a896924e2f!2sLimbe!5e0!3m2!1sen!2scm!4v1630589628934!5m2!1sen!2scm"></iframe>
               </div>
